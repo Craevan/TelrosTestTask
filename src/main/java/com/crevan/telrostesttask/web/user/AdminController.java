@@ -4,6 +4,7 @@ import com.crevan.telrostesttask.model.User;
 import com.crevan.telrostesttask.util.validation.ValidationUtil;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -49,6 +50,7 @@ public class AdminController extends AbstractUserController {
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     public void update(@Valid @RequestBody final User user, @PathVariable final int id) {
         log.info("[AdminController:] Updating {} with id={}", user, id);
@@ -56,6 +58,7 @@ public class AdminController extends AbstractUserController {
         repository.prepareAndSave(user);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void delete(@PathVariable final int id) {
         log.info("[AdminController:] Delete user with ID={}", id);
