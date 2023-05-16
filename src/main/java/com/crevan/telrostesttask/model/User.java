@@ -3,10 +3,7 @@ package com.crevan.telrostesttask.model;
 import com.crevan.telrostesttask.util.validation.NoHtml;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -67,6 +64,7 @@ public class User extends BaseEntity implements Serializable {
     private String email;
 
     @Column(name = "phone_number")
+    @Pattern(regexp = "^(\\+7|7|8)?[\\s\\-]?\\(?[489][0-9]{2}\\)?[\\s\\-]?[0-9]{3}[\\s\\-]?[0-9]{2}[\\s\\-]?[0-9]{2}$")
     private String phoneNumber;
 
     @Column(name = "role")
