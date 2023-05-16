@@ -13,7 +13,7 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 @AllArgsConstructor
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
-//    https://stackoverflow.com/questions/38549657/is-it-possible-to-add-qualifiers-in-requiredargsconstructoronconstructor
+    //  https://stackoverflow.com/questions/38549657/is-it-possible-to-add-qualifiers-in-requiredargsconstructoronconstructor
     @Qualifier("handlerExceptionResolver")
     private final HandlerExceptionResolver resolver;
 

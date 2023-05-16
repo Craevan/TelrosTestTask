@@ -4,9 +4,11 @@ import com.crevan.telrostesttask.HasId;
 import com.crevan.telrostesttask.error.IllegalRequestDataException;
 import com.crevan.telrostesttask.model.Role;
 import com.crevan.telrostesttask.model.User;
+import lombok.experimental.UtilityClass;
 
 import java.util.Set;
 
+@UtilityClass
 public class ValidationUtil {
 
     public static void checkNew(final HasId bean) {
