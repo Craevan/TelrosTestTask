@@ -1,12 +1,14 @@
 package com.crevan.telrostesttask.repository;
 
 import com.crevan.telrostesttask.error.NotFoundException;
+import com.crevan.telrostesttask.model.Role;
 import com.crevan.telrostesttask.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.EnumSet;
 import java.util.Optional;
 
 import static com.crevan.telrostesttask.config.SecurityConfig.PASSWORD_ENCODER;
@@ -26,6 +28,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     default User prepareAndSave(final User user) {
         user.setPassword(PASSWORD_ENCODER.encode(user.getPassword()));
         user.setEmail(user.getEmail().toLowerCase());
+        if (user.getRoles() == null || user.getRoles().isEmpty()) {
+            user.setRoles(EnumSet.of(Role.USER));
+        }
         return save(user);
     }
 
