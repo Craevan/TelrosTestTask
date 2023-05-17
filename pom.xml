@@ -17,6 +17,7 @@
         <java.version>17</java.version>
         <jsoup.version>1.15.4</jsoup.version>
         <springdoc.version>2.1.0</springdoc.version>
+        <postgresql.version>42.6.0</postgresql.version>
         <jackson-datatype.version>2.15.0</jackson-datatype.version>
     </properties>
     <dependencies>
@@ -102,7 +103,7 @@
                 <dependency>
                     <groupId>org.postgresql</groupId>
                     <artifactId>postgresql</artifactId>
-                    <version>42.6.0</version>
+                    <version>${postgresql.version}</version>
                 </dependency>
             </dependencies>
         </profile>
